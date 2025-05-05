@@ -7,7 +7,7 @@ This repository provides a collection of benchmark objective functions implement
 
 The repository implements the following benchmark functions:
 
-Classical Optimization Functions
+### Classical Optimization Functions
 
 Rastrigin
 
@@ -46,3 +46,43 @@ McCormick
 Schaffer N.2 & N.4
 
 Styblinski-Tang
+
+### Constrained Optimization Functions
+Rosenbrock with cube and line constraints
+
+Rosenbrock with disk constraint
+
+Mishra's Bird (constrained)
+
+Modified Townsend function
+
+Simionescu function
+
+## Key Features
+Pure Python implementation with NumPy for efficiency
+
+Detailed documentation for each function (parameters, mathematical formula, search domain)
+
+Predefined search boundaries for each function
+
+Vectorized implementations where applicable
+
+Includes both constrained and unconstrained variants
+
+## Applications
+
+These functions are useful for:
+
+Testing optimization algorithms (gradient descent, evolutionary algorithms, etc.)
+
+Comparing the performance of different optimization methods
+
+Developing and validating new optimization techniques
+
+Educational purposes in numerical methods and optimization
+
+## Requirements
+
+Python 3.x
+
+NumPy
