@@ -10,7 +10,11 @@ def rosenbrock(x):
     Returns:
         float: Function value at point x
     """
-    return sum(100*(x[i+1]-x[i]**2)**2 + (1-x[i])**2 for i in range(len(x)-1))
+    n = len(x)
+    result = 0
+    for i in range(n-1):
+        result += 100 * (x[i+1] - x[i]**2)**2 + (1 - x[i])**2
+    return result
 
 limit_rosenbrock = np.array([[-2.12, 2.12], [-1, -3]])
 
@@ -27,9 +31,8 @@ def rosenbrock_constrained(x, y):
     """
     outside_cube = np.logical_or(x < -1, x > 1) | np.logical_or(y < -1, y > 1)
     outside_line = y < -x + 1
-    return np.where(np.logical_or(outside_cube, outside_line), 
-                  np.inf, 
-                  (1-x)**2 + 100*(y-x**2)**2)
+    Z = np.where(np.logical_or(outside_cube, outside_line), np.inf, (1 - x) ** 2 + 100 * (y - x ** 2) ** 2)
+    return Z
 
 limit_rosenbrock_constrained = np.array([[-1.5, 1.5], [-0.5, 2.5]])
 
@@ -44,9 +47,11 @@ def rosenbrock_constrained_disk(x, y):
     Returns:
         numpy array: Function value (inf if outside disk)
     """
-    return np.where(x**2 + y**2 <= 2.25, 
-                  (1-x)**2 + 100*(y-x**2)**2, 
-                  np.inf)
+    radius = 1.5
+    inside_disk = x**2 + y**2 <= radius**2
+    Z = np.where(inside_disk, (1 - x) ** 2 + 100 * (y - x ** 2) ** 2, np.inf)
+
+    return Z
 
 limit_rosenbrock_constrained_disk = np.array([[-2, 2], [-2, 2]])
 
@@ -61,9 +66,10 @@ def mishra_bird_constrained(x, y):
     Returns:
         numpy array or float: Function value(s)
     """
-    return (np.sin(y)*np.exp((1-np.cos(x))**2) + 
-            np.cos(x)*np.exp((1-np.sin(y))**2) + 
-            (x-y)**2)
+    term1 = np.sin(y) * np.exp((1 - np.cos(x)) ** 2)
+    term2 = np.cos(x) * np.exp((1 - np.sin(y)) ** 2)
+    term3 = (x - y) ** 2
+    return term1 + term2 + term3
 
 limit_mishra_bird_constrained = np.array([[-10, 0], [-6.5, 0]])
 
@@ -79,7 +85,14 @@ def townsend_modified(x, y):
         float or numpy array: Function value(s)
     """
     a, b, c, d = 1.8, 1.8, 10, 10
-    return 0.5*((x-a)**2 + (y-b)**2) - np.cos(c*(x-a))*np.cos(d*(y-b)) + 1
+    if isinstance(x, np.ndarray) and isinstance(y, np.ndarray):
+        result = np.empty_like(x)
+        for i in range(x.shape[0]):
+            for j in range(x.shape[1]):
+                result[i, j] = 0.5 * ((x[i, j] - a) ** 2 + (y[i, j] - b) ** 2) - np.cos(c * (x[i, j] - a)) * np.cos(d * (y[i, j] - b)) + 1
+        return result
+    else:
+        return 0.5 * ((x - a) ** 2 + (y - b) ** 2) - np.cos(c * (x - a)) * np.cos(d * (y - b)) + 1
 
 limit_townsend_modified = np.array([[-10, 10], [-10, 10]])
 

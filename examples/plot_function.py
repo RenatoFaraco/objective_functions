@@ -1,7 +1,6 @@
 import sys
 import os
 
-# Adiciona o diretório raiz do projeto ao sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import json
@@ -11,11 +10,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from benchmarks import multimodal as mlt
 
-
-# Parameters
 params = {
-    'function': mlt.ackley,
-    'bounds': mlt.bounds_ackley,
+    'function': mlt.rastrigin,
+    'bounds': mlt.limit_rastrigin,
     'n_dim': 2,
     'alpha': 0.01,
     'beta': 0.5,

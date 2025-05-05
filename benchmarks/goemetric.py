@@ -15,7 +15,7 @@ def goldstein_price(x, y):
     term2 = 30 + (2*x - 3*y)**2 * (18 - 32*x + 12*x**2 + 48*y - 36*x*y + 27*y**2)
     return term1 * term2
 
-bounds_goldstein_price = np.array([[-5.12, 5.12]] * 2)
+limit_goldstein_price = np.array([[-5.12, 5.12]] * 2)
 
 def bukin(x, y):
     """
@@ -30,7 +30,7 @@ def bukin(x, y):
     """
     return 100 * np.sqrt(np.abs(y - 0.01 * x**2)) + 0.01 * np.abs(x + 10)
 
-bounds_bukin = np.array([[-15, -5], [-3, 3]])
+limit_bukin = np.array([[-15, -5], [-3, 3]])
 
 def levi(x, y):
     """
@@ -49,7 +49,7 @@ def levi(x, y):
         (y - 1)**2 * (1 + np.sin(2 * np.pi * y)**2)
     )
 
-bounds_levi = np.array([[-10, 10]] * 2)
+limit_levi = np.array([[-10, 10]] * 2)
 
 def holder_table(x, y):
     """
@@ -65,7 +65,7 @@ def holder_table(x, y):
     term = np.abs(np.sin(x) * np.cos(y) * np.exp(np.abs(1 - np.sqrt(x**2 + y**2) / np.pi)))
     return -term
 
-bounds_holder_table = np.array([[-10, 10]] * 2)
+limit_holder_table = np.array([[-10, 10]] * 2)
 
 def cross_in_tray(x, y):
     """
@@ -78,11 +78,13 @@ def cross_in_tray(x, y):
     Returns:
         float: Function value at (x, y).
     """
-    x /= 100
-    y /= 100
-    r = np.sqrt(x**2 + y**2)
-    arg = np.clip(np.abs(100 - r / np.pi), -100, 100)
-    value = np.abs(np.sin(x) * np.sin(y) * np.exp(arg)) + 1
-    return -0.0001 * value**0.1
+    scaled_x = x / 100.0
+    scaled_y = y / 100.0
 
-bounds_cross_in_tray = np.array([[-10, 10]] * 2)
+    arg = np.abs(100 - np.sqrt(scaled_x**2 + scaled_y**2) / np.pi)
+    clipped_arg = np.clip(arg, -100, 100)
+
+    exp_term = np.exp(clipped_arg)
+    return -0.0001 * (np.abs(np.sin(scaled_x) * np.sin(scaled_y) * exp_term) + 1)**0.11
+
+limit_cross_in_tray = np.array([[-10, 10]] * 2)

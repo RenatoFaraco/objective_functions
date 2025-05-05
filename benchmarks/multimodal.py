@@ -10,10 +10,15 @@ def rastrigin(x):
     Returns:
         float: Function value.
     """
-    x = np.asarray(x)
-    return 10 * len(x) + np.sum(x**2 - 10 * np.cos(2 * np.pi * x))
+    dim = len(x)
+    of = 0
 
-bounds_rastrigin = np.array([[-5.12, 5.12]] * 2)
+    for i in range(dim):
+        of += 10 + (x[i] ** 2) - 10 * np.cos(2 * np.pi * x[i])
+
+    return of
+
+limit_rastrigin = np.array([[-5.12, 5.12]]*2)
 
 def ackley(x):
     """
@@ -37,7 +42,7 @@ def ackley(x):
 
     return of
 
-bounds_ackley = np.array([[-32.768, 32.768]] * 2)
+limit_ackley = np.array([[-32.768, 32.768]]*2)
 
 def three_hump_camel(x, y):
     """
@@ -52,7 +57,7 @@ def three_hump_camel(x, y):
     """
     return 2 * x**2 - 1.05 * x**4 + (x**6) / 6 + x * y + y**2
 
-bounds_three_hump_camel = np.array([[-5, 5]] * 2)
+limit_three_hump_camel = np.array([[-5, 5]] * 2)
 
 def easom(x, y):
     """
@@ -67,7 +72,7 @@ def easom(x, y):
     """
     return -np.cos(x) * np.cos(y) * np.exp(-(x - np.pi)**2 - (y - np.pi)**2)
 
-bounds_easom = np.array([[-10, 10]] * 2)
+limit_easom = np.array([[-10, 10]] * 2)
 
 def eggholder(x, y):
     """
@@ -80,11 +85,10 @@ def eggholder(x, y):
     Returns:
         float: Function value.
     """
-    term1 = -(y + 47) * np.sin(np.sqrt(np.abs((x / 2 + y + 47) / 2)))
-    term2 = -x * np.sin(np.sqrt(np.abs(x - (y + 47))))
-    return term1 + term2
+    return -(y + 47) * np.sin(np.sqrt(np.abs(y + x/2 + 47)/2)) - x * np.sin(np.sqrt(np.abs(x - (y + 47))))
 
-bounds_eggholder = np.array([[-512, 512]] * 2)
+
+limit_eggholder = np.array([[-512, 512]] * 2)
 
 def schaffer_n2(x, y):
     """
@@ -102,7 +106,7 @@ def schaffer_n2(x, y):
     den = (1 + 0.001 * r)**2
     return 0.5 + num / den
 
-bounds_schaffer_n2 = np.array([[-100, 100]] * 2)
+limit_schaffer_n2  = np.array([[-100, 100]] * 2)
 
 def schaffer_n4(x, y):
     """
@@ -120,7 +124,7 @@ def schaffer_n4(x, y):
     den = (1 + 0.001 * r)**2
     return 0.5 + num / den
 
-bounds_schaffer_n4 = np.array([[-100, 100]] * 2)
+limit_schaffer_n4 = np.array([[-100, 100]] * 2)
 
 def styblinski_tang(x, y):
     """
@@ -135,6 +139,6 @@ def styblinski_tang(x, y):
     """
     return 0.5 * (x**4 - 16*x**2 + 5*x + y**4 - 16*y**2 + 5*y)
 
-bounds_styblinski_tang = np.array([[-5, 5]] * 2)
+limit_styblinski_tang = np.array([[-5, 5]] * 2)
 
 

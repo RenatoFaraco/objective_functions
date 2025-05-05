@@ -10,10 +10,9 @@ def sphere(x):
     Returns:
         float: Function value.
     """
-    x = np.asarray(x)
-    return np.sum(x**2)
+    return sum(xi**2 for xi in x)
 
-bounds_sphere = np.array([[-5.12, 5.12]] * 2)
+limit_sphere = np.array([[-5.12, 5.12]]*2)
 
 def rosenbrock(x):
     """
@@ -25,10 +24,13 @@ def rosenbrock(x):
     Returns:
         float: Function value.
     """
-    x = np.asarray(x)
-    return np.sum(100 * (x[1:] - x[:-1]**2)**2 + (1 - x[:-1])**2)
+    n = len(x)
+    result = 0
+    for i in range(n-1):
+        result += 100 * (x[i+1] - x[i]**2)**2 + (1 - x[i])**2
+    return result
 
-bounds_rosenbrock = np.array([[-2.12, 2.12], [-1, -3]])
+limit_rosenbrock = np.array([[-2.12, 2.12],[-1,-3]])
 
 def beale(x, y):
     """
@@ -46,7 +48,7 @@ def beale(x, y):
     t3 = (2.625 - x + x * y**3)**2
     return t1 + t2 + t3
 
-bounds_beale = np.array([[-5.12, 5.12]] * 2)
+limit_beale = np.array([[-5.12, 5.12]]*2)
 
 def booth(x, y):
     """
@@ -61,7 +63,7 @@ def booth(x, y):
     """
     return (x + 2*y - 7)**2 + (2*x + y - 5)**2
 
-bounds_booth = np.array([[-5.12, 5.12]] * 2)
+limit_booth = np.array([[-5.12, 5.12]] * 2)
 
 def matyas(x, y):
     """
@@ -76,4 +78,4 @@ def matyas(x, y):
     """
     return 0.26 * (x**2 + y**2) - 0.48 * x * y
 
-bounds_matyas = np.array([[-10, 10]] * 2)
+limit_matyas = np.array([[-10, 10]] * 2)
