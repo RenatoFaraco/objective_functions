@@ -25,11 +25,17 @@ def ackley(x):
     Returns:
         float: Function value.
     """
-    x = np.asarray(x)
-    n = len(x)
-    sum_sq = np.sum(x**2)
-    sum_cos = np.sum(np.cos(2 * np.pi * x))
-    return 20 + np.e - 20 * np.exp(-0.2 * np.sqrt(sum_sq / n)) - np.exp(sum_cos / n)
+    dim = len(x)
+    t1 = 0
+    t2 = 0
+
+    for i in range(dim):
+        t1 += x[i] ** 2
+        t2 += np.cos(2 * np.pi * x[i])
+
+    of = 20 + np.e - 20 * np.exp((t1 / dim) * -0.2) - np.exp(t2 / dim)
+
+    return of
 
 bounds_ackley = np.array([[-32.768, 32.768]] * 2)
 
@@ -130,3 +136,5 @@ def styblinski_tang(x, y):
     return 0.5 * (x**4 - 16*x**2 + 5*x + y**4 - 16*y**2 + 5*y)
 
 bounds_styblinski_tang = np.array([[-5, 5]] * 2)
+
+
