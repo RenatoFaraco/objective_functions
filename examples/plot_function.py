@@ -3,16 +3,13 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import json
 import numpy as np
-import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
-from benchmarks import multimodal as mlt
+from benchmarks import goemetric as geo
 
 params = {
-    'function': mlt.rastrigin,
-    'bounds': mlt.limit_rastrigin,
+    'function': geo.cross_in_tray,
+    'bounds': geo.limit_cross_in_tray,
     'n_dim': 2,
     'alpha': 0.01,
     'beta': 0.5,
@@ -25,7 +22,7 @@ params = {
 x_vals = np.linspace(params['bounds'][0, 0], params['bounds'][0, 1], 100)
 y_vals = np.linspace(params['bounds'][1, 0], params['bounds'][1, 1], 100)
 X, Y = np.meshgrid(x_vals, y_vals)
-Z = params['function']([X, Y])
+Z = np.array([[params['function'](np.array([x, y])) for x in x_vals] for y in y_vals])
 
 # 3D Plot
 fig = plt.figure(figsize=(12, 6))
