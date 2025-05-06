@@ -4,10 +4,12 @@
 This repository provides a collection of benchmark objective functions implemented in Python, commonly used to test and compare optimization algorithms. The functions include both unconstrained and constrained continuous optimization problems, featuring various characteristics such as multimodality, valleys, plateaus, and discontinuities.
 
 ## Key Features  
-- **Pure Python + NumPy**: All functions leverage NumPy for vectorized computations and performance :contentReference[oaicite:1]{index=1}.  
-- **Rich Documentation**: Each function includes clear docstrings detailing the mathematical formula, parameters, and return values :contentReference[oaicite:2]{index=2}.  
-- **Predefined Search Domains**: Built‑in bounds for each function facilitate immediate use in optimization experiments :contentReference[oaicite:3]{index=3}.  
-- **Unconstrained & Constrained Variants**: Includes both standard continuous functions and constrained versions (e.g., Rosenbrock with cube, line, or disk constraints, Mishra’s Bird, Modified Townsend, Simionescu) :contentReference[oaicite:4]{index=4}.  
+- **Pure Python + NumPy**: All functions leverage NumPy for vectorized computations and performance.  
+- **Consistent Interface**: All objective functions now accept a single NumPy array `x` of shape `(n,)`, where `n` is the number of dimensions (e.g., `x = np.array([x1, x2])`).  
+- **Rich Documentation**: Each function includes clear docstrings detailing the mathematical formula, parameters, and return values.  
+- **Predefined Search Domains**: Built‑in bounds for each function facilitate immediate use in optimization experiments.  
+- **Unconstrained & Constrained Variants**: Includes both standard continuous functions and constrained versions (e.g., Rosenbrock with cube, line, or disk constraints, Mishra’s Bird, Modified Townsend, Simionescu).  
+
 
 ## Included Functions  
 ### Classical Unconstrained Optimizers  
@@ -58,7 +60,6 @@ This repository provides a collection of benchmark objective functions implement
 4. **Install dependencies**
    ```bash 
    pip install numpy pandas matplotlib seaborn
-   ``` :contentReference[oaicite:7]{index=7}.
    ```
 
 ## Usage examples
