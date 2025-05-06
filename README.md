@@ -29,14 +29,14 @@ This repository provides a collection of benchmark objective functions implement
 - **Hölder Table**  
 - **McCormick**  
 - **Schaffer N.2 & N.4**  
-- **Styblinski–Tang** :contentReference[oaicite:5]{index=5}.  
+- **Styblinski–Tang** 
 
 ### Constrained Optimization Variants  
 - **Rosenbrock** with cube & line constraints  
 - **Rosenbrock** with disk constraint  
 - **Mishra’s Bird** (constrained)  
 - **Modified Townsend**  
-- **Simionescu** :contentReference[oaicite:6]{index=6}.  
+- **Simionescu**   
 
 ## Installation  
 1. **Clone the repository**  
