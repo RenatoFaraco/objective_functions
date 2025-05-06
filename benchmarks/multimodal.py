@@ -44,100 +44,100 @@ def ackley(x):
 
 limit_ackley = np.array([[-32.768, 32.768]]*2)
 
-def three_hump_camel(x, y):
+def three_hump_camel(x: np.ndarray) -> np.ndarray:
     """
     Three-Hump Camel function for optimization.
 
-    Args:
-        x (float): X coordinate.
-        y (float): Y coordinate.
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
 
     Returns:
-        float: Function value.
+        float: Function value (inf if constraints are violated)
     """
-    return 2 * x**2 - 1.05 * x**4 + (x**6) / 6 + x * y + y**2
+    x1, x2 = x[0], x[1]
+    return 2 * x1**2 - 1.05 * x1**4 + (x1**6) / 6 + x1 * x2 + x2**2
 
 limit_three_hump_camel = np.array([[-5, 5]] * 2)
 
-def easom(x, y):
+def easom(x: np.ndarray) -> np.ndarray:
     """
     Easom function for optimization.
 
-    Args:
-        x (float): X coordinate.
-        y (float): Y coordinate.
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
 
     Returns:
         float: Function value.
     """
-    return -np.cos(x) * np.cos(y) * np.exp(-(x - np.pi)**2 - (y - np.pi)**2)
+    x1, x2 = x[0], x[1]
+    return -np.cos(x1) * np.cos(x2) * np.exp(-(x1 - np.pi)**2 - (x2 - np.pi)**2)
 
 limit_easom = np.array([[-10, 10]] * 2)
 
-def eggholder(x, y):
+def eggholder(x: np.ndarray) -> np.ndarray:
     """
     Eggholder function for optimization.
 
-    Args:
-        x (float): X coordinate.
-        y (float): Y coordinate.
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
 
     Returns:
         float: Function value.
     """
-    return -(y + 47) * np.sin(np.sqrt(np.abs(y + x/2 + 47)/2)) - x * np.sin(np.sqrt(np.abs(x - (y + 47))))
+    x1, x2 = x[0], x[1]
+    return -(x2 + 47) * np.sin(np.sqrt(np.abs(x2 + x1/2 + 47)/2)) - x1 * np.sin(np.sqrt(np.abs(x1 - (x2 + 47))))
 
 
 limit_eggholder = np.array([[-512, 512]] * 2)
 
-def schaffer_n2(x, y):
+def schaffer_n2(x: np.ndarray) -> np.ndarray:
     """
     Schaffer N.2 function for optimization.
 
-    Args:
-        x (float): X coordinate.
-        y (float): Y coordinate.
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
 
     Returns:
         float: Function value.
     """
-    r = x**2 + y**2
+    x1, x2 = x[0], x[1]
+    r = x1**2 + x2**2
     num = np.sin(np.sqrt(r))**2 - 0.5
     den = (1 + 0.001 * r)**2
     return 0.5 + num / den
 
 limit_schaffer_n2  = np.array([[-100, 100]] * 2)
 
-def schaffer_n4(x, y):
+def schaffer_n4(x: np.ndarray) -> np.ndarray:
     """
     Schaffer N.4 function for optimization.
 
-    Args:
-        x (float): X coordinate.
-        y (float): Y coordinate.
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
 
     Returns:
         float: Function value.
     """
-    r = x**2 + y**2
-    num = np.cos(np.sin(np.abs(x**2 - y**2)))**2 - 0.5
+    x1, x2 = x[0], x[1]
+    r = x1**2 + x2**2
+    num = np.cos(np.sin(np.abs(x1**2 - x2**2)))**2 - 0.5
     den = (1 + 0.001 * r)**2
     return 0.5 + num / den
 
 limit_schaffer_n4 = np.array([[-100, 100]] * 2)
 
-def styblinski_tang(x, y):
+def styblinski_tang(x: np.ndarray) -> np.ndarray:
     """
     Styblinski-Tang function for optimization.
 
-    Args:
-        x (float): X coordinate.
-        y (float): Y coordinate.
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
 
     Returns:
         float: Function value.
     """
-    return 0.5 * (x**4 - 16*x**2 + 5*x + y**4 - 16*y**2 + 5*y)
+    x1, x2 = x[0], x[1]
+    return 0.5 * (x1**4 - 16*x1**2 + 5*x1 + x2**4 - 16*x2**2 + 5*x2)
 
 limit_styblinski_tang = np.array([[-5, 5]] * 2)
 
