@@ -1,6 +1,6 @@
 import numpy as np
 
-def rastrigin(x):
+def rastrigin(x: np.ndarray) -> float:
     """
     Rastrigin function for optimization.
 
@@ -20,7 +20,7 @@ def rastrigin(x):
 
 limit_rastrigin = np.array([[-5.12, 5.12]]*2)
 
-def ackley(x):
+def ackley(x: np.ndarray) -> float:
     """
     Ackley function for optimization.
 
@@ -44,7 +44,7 @@ def ackley(x):
 
 limit_ackley = np.array([[-32.768, 32.768]]*2)
 
-def three_hump_camel(x: np.ndarray) -> np.ndarray:
+def three_hump_camel(x: np.ndarray) -> float:
     """
     Three-Hump Camel function for optimization.
 
@@ -59,7 +59,7 @@ def three_hump_camel(x: np.ndarray) -> np.ndarray:
 
 limit_three_hump_camel = np.array([[-5, 5]] * 2)
 
-def easom(x: np.ndarray) -> np.ndarray:
+def easom(x: np.ndarray) -> float:
     """
     Easom function for optimization.
 
@@ -74,7 +74,7 @@ def easom(x: np.ndarray) -> np.ndarray:
 
 limit_easom = np.array([[-10, 10]] * 2)
 
-def eggholder(x: np.ndarray) -> np.ndarray:
+def eggholder(x: np.ndarray) -> float:
     """
     Eggholder function for optimization.
 
@@ -90,7 +90,7 @@ def eggholder(x: np.ndarray) -> np.ndarray:
 
 limit_eggholder = np.array([[-512, 512]] * 2)
 
-def schaffer_n2(x: np.ndarray) -> np.ndarray:
+def schaffer_n2(x: np.ndarray) -> float:
     """
     Schaffer N.2 function for optimization.
 
@@ -108,7 +108,7 @@ def schaffer_n2(x: np.ndarray) -> np.ndarray:
 
 limit_schaffer_n2  = np.array([[-100, 100]] * 2)
 
-def schaffer_n4(x: np.ndarray) -> np.ndarray:
+def schaffer_n4(x: np.ndarray) -> float:
     """
     Schaffer N.4 function for optimization.
 
@@ -126,7 +126,7 @@ def schaffer_n4(x: np.ndarray) -> np.ndarray:
 
 limit_schaffer_n4 = np.array([[-100, 100]] * 2)
 
-def styblinski_tang(x: np.ndarray) -> np.ndarray:
+def styblinski_tang(x: np.ndarray) -> float:
     """
     Styblinski-Tang function for optimization.
 

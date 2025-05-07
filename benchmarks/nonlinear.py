@@ -1,6 +1,6 @@
 import numpy as np
 
-def rosenbrock(x):
+def rosenbrock(x: np.ndarray) -> float:
     """
     Rosenbrock function for optimization.
     
@@ -18,7 +18,7 @@ def rosenbrock(x):
 
 limit_rosenbrock = np.array([[-2.12, 2.12], [-1, -3]])
 
-def rosenbrock_constrained(x: np.ndarray) -> np.ndarray:
+def rosenbrock_constrained(x: np.ndarray) -> float:
     """
     Rosenbrock function with cube and line constraints.
     
@@ -37,7 +37,7 @@ def rosenbrock_constrained(x: np.ndarray) -> np.ndarray:
 
 limit_rosenbrock_constrained = np.array([[-1.5, 1.5], [-0.5, 2.5]])
 
-def rosenbrock_constrained_disk(x: np.ndarray) -> np.ndarray:
+def rosenbrock_constrained_disk(x: np.ndarray) -> float:
     """
     Rosenbrock function constrained to a disk.
    
@@ -56,7 +56,7 @@ def rosenbrock_constrained_disk(x: np.ndarray) -> np.ndarray:
 
 limit_rosenbrock_constrained_disk = np.array([[-2, 2], [-2, 2]])
 
-def mishra_bird_constrained(x: np.ndarray) -> np.ndarray:
+def mishra_bird_constrained(x: np.ndarray) -> float:
     """
     Mishra's Bird function with constraints.
    
@@ -74,7 +74,7 @@ def mishra_bird_constrained(x: np.ndarray) -> np.ndarray:
 
 limit_mishra_bird_constrained = np.array([[-10, 0], [-6.5, 0]])
 
-def townsend_modified(x: np.ndarray) -> np.ndarray:
+def townsend_modified(x: np.ndarray) -> float:
     """
     Modified Townsend function for optimization.
    
@@ -97,7 +97,7 @@ def townsend_modified(x: np.ndarray) -> np.ndarray:
 
 limit_townsend_modified = np.array([[-10, 10], [-10, 10]])
 
-def simionescu(x: np.ndarray) -> np.ndarray:
+def simionescu(x: np.ndarray) -> float:
     """
     Simionescu's piecewise constrained function.
    

@@ -1,6 +1,6 @@
 import numpy as np
 
-def goldstein_price(x: np.ndarray) -> np.ndarray:
+def goldstein_price(x: np.ndarray) -> float:
     """
     Goldstein-Price function for optimization.
     
@@ -17,7 +17,7 @@ def goldstein_price(x: np.ndarray) -> np.ndarray:
 
 limit_goldstein_price = np.array([[-5.12, 5.12]] * 2)
 
-def bukin(x: np.ndarray) -> np.ndarray:
+def bukin(x: np.ndarray) -> float:
     """
     Bukin N.6 function for optimization.
     
@@ -32,7 +32,7 @@ def bukin(x: np.ndarray) -> np.ndarray:
 
 limit_bukin = np.array([[-15, -5], [-3, 3]])
 
-def levi(x: np.ndarray) -> np.ndarray:
+def levi(x: np.ndarray) -> float:
     """
     Lévi N.13 function for optimization.
     
@@ -51,7 +51,7 @@ def levi(x: np.ndarray) -> np.ndarray:
 
 limit_levi = np.array([[-10, 10]] * 2)
 
-def holder_table(x: np.ndarray) -> np.ndarray:
+def holder_table(x: np.ndarray) -> float:
     """
     Hölder Table function for optimization.
         x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
@@ -68,7 +68,7 @@ def holder_table(x: np.ndarray) -> np.ndarray:
 
 limit_holder_table = np.array([[-10, 10]] * 2)
 
-def cross_in_tray(x: np.ndarray) -> np.ndarray:
+def cross_in_tray(x: np.ndarray) -> float:
     """
     Cross-in-Tray function for optimization.
      

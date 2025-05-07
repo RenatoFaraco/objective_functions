@@ -1,6 +1,6 @@
 import numpy as np
 
-def sphere(x):
+def sphere(x: np.ndarray) -> float:
     """
     Sphere function for optimization.
 
@@ -14,7 +14,7 @@ def sphere(x):
 
 limit_sphere = np.array([[-5.12, 5.12]]*2)
 
-def rosenbrock(x):
+def rosenbrock(x: np.ndarray) -> float:
     """
     Rosenbrock function for optimization.
 
@@ -32,7 +32,7 @@ def rosenbrock(x):
 
 limit_rosenbrock = np.array([[-2.12, 2.12],[-1,-3]])
 
-def beale(x: np.ndarray) -> np.ndarray:
+def beale(x: np.ndarray) -> float:
     """
     Beale function for optimization.
 
@@ -50,7 +50,7 @@ def beale(x: np.ndarray) -> np.ndarray:
 
 limit_beale = np.array([[-5.12, 5.12]]*2)
 
-def booth(x: np.ndarray) -> np.ndarray:
+def booth(x: np.ndarray) -> float:
     """
     Booth function for optimization.
 
@@ -65,7 +65,7 @@ def booth(x: np.ndarray) -> np.ndarray:
 
 limit_booth = np.array([[-5.12, 5.12]] * 2)
 
-def matyas(x: np.ndarray) -> np.ndarray:
+def matyas(x: np.ndarray) -> float:
     """
     Matyas function for optimization.
 
