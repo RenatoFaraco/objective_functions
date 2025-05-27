@@ -1,0 +1,32 @@
+import math
+import numpy as np 
+
+BOUNDS = {
+
+    "beale": np.array([[-5.12, 5.12]]*2),
+    "booth": np.array([[-5.12, 5.12]] * 2),
+    "matyas": np.array([[-10, 10]] * 2),
+    "rosenbrock": np.array([[-2.12, 2.12],[-1,-3]]),
+    "sphere": np.array([[-5.12, 5.12]]*2),
+
+    "ackley": np.array([[-32.768, 32.768]]*2),
+    "easom": np.array([[-10, 10]] * 2),  
+    "eggholder": np.array([[-512, 512]] * 2), 
+    "rastrigin": np.array([[-5.12, 5.12]]*2),
+    "schaffer_n2": np.array([[-100, 100]] * 2),
+    "schaffer_n4": np.array([[-100, 100]] * 2),
+    "styblinski_tang": np.array([[-5, 5]] * 2),
+    "three_hump_camel": np.array([[-5, 5]] * 2), 
+    
+    "mishra_bird_constrained": np.array([[-10, 0], [-6.5, 0]]),
+    "rosenbrock_constrained": np.array([[-1.5, 1.5], [-0.5, 2.5]]),
+    "rosenbrock_constrained_disk": np.array([[-2, 2], [-2, 2]]),
+    "simionescu": np.array([[-2, 2], [-2, 2]]),
+    "townsend_modified": np.array([[-10, 10], [-10, 10]]),
+
+    "bukin": np.array([[-15, -5], [-3, 3]]),
+    "cross_in_tray": np.array([[-10, 10]] * 2),
+    "goldstein_price": np.array([[-5.12, 5.12]] * 2),
+    "holder_table": np.array([[-10, 10]] * 2),
+    "levi": np.array([[-10, 10]] * 2),
+}

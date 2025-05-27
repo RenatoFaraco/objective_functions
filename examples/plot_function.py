@@ -5,11 +5,15 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import numpy as np
 import matplotlib.pyplot as plt
-from benchmarks import goemetric as geo
+from benchmarks import classical as cla
+from benchmarks import geometric as geo
+from benchmarks import multimodal as mlt
+from benchmarks import nonlinear as nln
+from benchmarks.bounds import BOUNDS
 
 params = {
-    'function': geo.cross_in_tray,
-    'bounds': geo.limit_cross_in_tray,
+    'function': cla.rosenbrock,
+    'bounds': BOUNDS["rosenbrock"],
     'n_dim': 2,
     'alpha': 0.01,
     'beta': 0.5,
@@ -29,7 +33,7 @@ fig = plt.figure(figsize=(12, 6))
 ax3d = fig.add_subplot(121, projection='3d')
 ax3d.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8)
 ax3d.contour(X, Y, Z, levels=50, colors='lightgrey', offset=np.min(Z))
-ax3d.set_title('3D Surface Plot - Ackley Function')
+ax3d.set_title('3D Surface Plot')
 ax3d.set_xlabel('X')
 ax3d.set_ylabel('Y')
 ax3d.set_zlabel('Z')
@@ -39,7 +43,7 @@ ax2d = fig.add_subplot(122)
 contour = ax2d.contourf(X, Y, Z, levels=50, cmap='viridis')
 plt.colorbar(contour, ax=ax2d)
 ax2d.contour(X, Y, Z, colors='lightgrey', levels=10)
-ax2d.set_title('2D Contour Plot - Ackley Function')
+ax2d.set_title('2D Contour Plot')
 ax2d.set_xlabel('X')
 ax2d.set_ylabel('Y')
 

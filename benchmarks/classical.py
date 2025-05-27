@@ -1,18 +1,49 @@
 import numpy as np
 
-def sphere(x: np.ndarray) -> float:
+def beale(x: np.ndarray) -> float:
     """
-    Sphere function for optimization.
+    Beale function for optimization.
 
-    Args:
-        x (array-like): Input vector.
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
 
     Returns:
         float: Function value.
     """
-    return sum(xi**2 for xi in x)
+    x1, x2 = x[0], x[1]
+    t1 = (1.5 - x1 + x1 * x2)**2
+    t2 = (2.25 - x1 + x1 * x2**2)**2
+    t3 = (2.625 - x1 + x1 * x2**3)**2
+    return t1 + t2 + t3
 
-limit_sphere = np.array([[-5.12, 5.12]]*2)
+
+def booth(x: np.ndarray) -> float:
+    """
+    Booth function for optimization.
+
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
+
+    Returns:
+        float: Function value.
+    """
+    x1, x2 = x[0], x[1]
+    return (x1 + 2*x2 - 7)**2 + (2*x1 + x2 - 5)**2
+
+
+def matyas(x: np.ndarray) -> float:
+    """
+    Matyas function for optimization.
+
+    Parameters:
+        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
+
+    Returns:
+        float: Function value.
+    """
+    x1, x2 = x[0], x[1]
+    return 0.26 * (x1**2 + x2**2) - 0.48 * x1 * x2
+
 
 def rosenbrock(x: np.ndarray) -> float:
     """
@@ -30,52 +61,15 @@ def rosenbrock(x: np.ndarray) -> float:
         result += 100 * (x[i+1] - x[i]**2)**2 + (1 - x[i])**2
     return result
 
-limit_rosenbrock = np.array([[-2.12, 2.12],[-1,-3]])
 
-def beale(x: np.ndarray) -> float:
+def sphere(x: np.ndarray) -> float:
     """
-    Beale function for optimization.
+    Sphere function for optimization.
 
-    Parameters:
-        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
+    Args:
+        x (array-like): Input vector.
 
     Returns:
         float: Function value.
     """
-    x1, x2 = x[0], x[1]
-    t1 = (1.5 - x1 + x1 * x2)**2
-    t2 = (2.25 - x1 + x1 * x2**2)**2
-    t3 = (2.625 - x1 + x1 * x2**3)**2
-    return t1 + t2 + t3
-
-limit_beale = np.array([[-5.12, 5.12]]*2)
-
-def booth(x: np.ndarray) -> float:
-    """
-    Booth function for optimization.
-
-    Parameters:
-        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
-
-    Returns:
-        float: Function value.
-    """
-    x1, x2 = x[0], x[1]
-    return (x1 + 2*x2 - 7)**2 + (2*x1 + x2 - 5)**2
-
-limit_booth = np.array([[-5.12, 5.12]] * 2)
-
-def matyas(x: np.ndarray) -> float:
-    """
-    Matyas function for optimization.
-
-    Parameters:
-        x (np.ndarray): Vector of shape (2,), where x[0] is x1 and x[1] is x2.
-
-    Returns:
-        float: Function value.
-    """
-    x1, x2 = x[0], x[1]
-    return 0.26 * (x1**2 + x2**2) - 0.48 * x1 * x2
-
-limit_matyas = np.array([[-10, 10]] * 2)
+    return sum(xi**2 for xi in x)
