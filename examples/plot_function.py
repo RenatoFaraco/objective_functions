@@ -5,15 +5,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import numpy as np
 import matplotlib.pyplot as plt
-from benchmarks import classical as cla
-from benchmarks import geometric as geo
-from benchmarks import multimodal as mlt
-from benchmarks import nonlinear as nln
-from benchmarks.bounds import BOUNDS
+from benchmarks.functions_registry import BOUNDS, FUNCTIONS
 
 params = {
-    'function': cla.rosenbrock,
-    'bounds': BOUNDS["rosenbrock"],
+    'function': FUNCTIONS["ackley"],
+    'bounds': BOUNDS["ackley"],
     'n_dim': 2,
     'alpha': 0.01,
     'beta': 0.5,

@@ -1,8 +1,39 @@
-import math
 import numpy as np 
+from benchmarks import classical as cla
+from benchmarks import geometric as geo
+from benchmarks import multimodal as mlt
+from benchmarks import nonlinear as nln
+
+FUNCTIONS = {
+    "beale": cla.beale,
+    "booth": cla.booth,
+    "matyas": cla.matyas,
+    "rosenbrock": cla.rosenbrock,
+    "sphere": cla.sphere,
+
+    "ackley": mlt.ackley,
+    "easom": mlt.easom,
+    "eggholder": mlt.eggholder,
+    "rastrigin": mlt.rastrigin,
+    "schaffer_n2": mlt.schaffer_n2,
+    "schaffer_n4": mlt.schaffer_n4,
+    "styblinski_tang": mlt.styblinski_tang,
+    "three_hump_camel": mlt.three_hump_camel,
+
+    "mishra_bird_constrained": nln.mishra_bird_constrained,
+    "rosenbrock_constrained": nln.rosenbrock_constrained,
+    "rosenbrock_constrained_disk": nln.rosenbrock_constrained_disk,
+    "simionescu": nln.simionescu,
+    "townsend_modified": nln.townsend_modified,
+
+    "bukin": geo.bukin,
+    "cross_in_tray": geo.cross_in_tray,
+    "goldstein_price": geo.goldstein_price,
+    "holder_table": geo.holder_table,
+    "levi": geo.levi,
+}
 
 BOUNDS = {
-
     "beale": np.array([[-5.12, 5.12]]*2),
     "booth": np.array([[-5.12, 5.12]] * 2),
     "matyas": np.array([[-10, 10]] * 2),
