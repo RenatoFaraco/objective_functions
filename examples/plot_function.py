@@ -5,11 +5,13 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import numpy as np
 import matplotlib.pyplot as plt
-from benchmarks.functions_registry import BOUNDS, FUNCTIONS
+from benchmarks.functions_registry import BenchmarkFunction
+
+f = BenchmarkFunction("townsend_modified")
 
 params = {
-    'function': FUNCTIONS["ackley"],
-    'bounds': BOUNDS["ackley"],
+    'function': f,
+    'bounds': f.bounds,
     'n_dim': 2,
     'alpha': 0.01,
     'beta': 0.5,

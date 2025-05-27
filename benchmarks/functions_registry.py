@@ -4,7 +4,7 @@ from benchmarks import geometric as geo
 from benchmarks import multimodal as mlt
 from benchmarks import nonlinear as nln
 
-FUNCTIONS = {
+_FUNCTIONS = {
     "beale": cla.beale,
     "booth": cla.booth,
     "matyas": cla.matyas,
@@ -33,7 +33,7 @@ FUNCTIONS = {
     "levi": geo.levi,
 }
 
-BOUNDS = {
+_BOUNDS = {
     "beale": np.array([[-5.12, 5.12]]*2),
     "booth": np.array([[-5.12, 5.12]] * 2),
     "matyas": np.array([[-10, 10]] * 2),
@@ -61,3 +61,20 @@ BOUNDS = {
     "holder_table": np.array([[-10, 10]] * 2),
     "levi": np.array([[-10, 10]] * 2),
 }
+
+class BenchmarkFunction:
+    def __init__(self, name: str):
+        if name not in _FUNCTIONS or name not in _BOUNDS:
+            raise ValueError(f"Function '{name}' not found in registry.")
+        self.name = name
+        self.func = _FUNCTIONS[name]
+        self.bounds = _BOUNDS[name]
+
+    def __call__(self, x):
+        return self.func(x)
+
+    def __repr__(self):
+        return f"<BenchmarkFunction name={self.name}>"
+
+FUNCTIONS = _FUNCTIONS
+BOUNDS = _BOUNDS
