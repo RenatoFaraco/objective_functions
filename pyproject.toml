@@ -17,5 +17,13 @@ license = {text = "GNU General Public License v3.0 (GPL-3.0)"}
 [tool.pdm]
 distribution = false
 
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
 [tool.pdm.scripts]
 plot = "python examples/plot_function.py"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]

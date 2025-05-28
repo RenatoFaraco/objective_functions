@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from benchmarks.functions_registry import BenchmarkFunction
 
-f = BenchmarkFunction("eggholder")
+f = BenchmarkFunction("rosenbrock_constrained_disk")
 
 params = {
     'function': f,
@@ -21,8 +21,8 @@ params = {
 }
 
 # Create meshgrid over the search space
-x_vals = np.linspace(params['bounds'][0, 0], params['bounds'][0, 1], 100)
-y_vals = np.linspace(params['bounds'][1, 0], params['bounds'][1, 1], 100)
+x_vals = np.linspace(params['bounds'][0, 0], params['bounds'][0, 1], 500)
+y_vals = np.linspace(params['bounds'][1, 0], params['bounds'][1, 1], 500)
 X, Y = np.meshgrid(x_vals, y_vals)
 Z = np.array([[params['function'](np.array([x, y])) for x in x_vals] for y in y_vals])
 
