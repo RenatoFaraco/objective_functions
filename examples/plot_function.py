@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from benchmarks.functions_registry import BenchmarkFunction
 
-f = BenchmarkFunction("townsend_modified")
+f = BenchmarkFunction("eggholder")
 
 params = {
     'function': f,
