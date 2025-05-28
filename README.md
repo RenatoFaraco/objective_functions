@@ -41,7 +41,17 @@ This repository provides a collection of benchmark objective functions implement
 - **Simionescu**   
 
 ## Installation  
-1. **Clone the repository**  
+
+This project uses [PDM](https://pdm.fming.dev/latest/) to manage dependencies and the virtual environment.
+
+### Prerequisites
+
+- Python 3.10
+- PDM (install with `pip install pdm`)
+
+### Steps
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/RenatoFaraco/objective_functions.git
    ```
@@ -51,15 +61,14 @@ This repository provides a collection of benchmark objective functions implement
    cd objective_functions
    ```
 
-3. **Set up a virtual environment**
+3. **Install dependencies and create environment**
    ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+   pdm install
    ```
 
-4. **Install dependencies**
+4. **Run a sample script**
    ```bash 
-   pip install numpy pandas matplotlib seaborn
+   pdm run plot
    ```
 
 ## Usage examples
@@ -73,9 +82,61 @@ This repository provides a collection of benchmark objective functions implement
    print(f"Ackley(0.5, -0.3) = {value}")
    ```
 
+### Using `BenchmarkFunction`
+
+You can use the `BenchmarkFunction` class to easily access both the objective function and its bounds:
+
+   ```python
+   from benchmarks.functions_registry import BenchmarkFunction
+
+   f = BenchmarkFunction("eggholder")
+   print(f"Function name: {f.name}")
+   print(f"Bounds:\n{f.bounds}")
+   print(f"Value at (0, 0): {f([0, 0])}")
+   ```
+
+#### Visualizing a function (Eggholder)
+
+   ```python
+   import numpy as np
+   import matplotlib.pyplot as plt
+   from benchmarks.functions_registry import BenchmarkFunction
+
+   f = BenchmarkFunction("eggholder")
+
+   x_vals = np.linspace(f.bounds[0, 0], f.bounds[0, 1], 100)
+   y_vals = np.linspace(f.bounds[1, 0], f.bounds[1, 1], 100)
+   X, Y = np.meshgrid(x_vals, y_vals)
+   Z = np.array([[f([x, y]) for x in x_vals] for y in y_vals])
+
+   fig = plt.figure(figsize=(12, 6))
+
+   # 3D Surface Plot
+   ax3d = fig.add_subplot(121, projection='3d')
+   ax3d.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8)
+   ax3d.contour(X, Y, Z, levels=50, colors='lightgrey', offset=np.min(Z))
+   ax3d.set_title('3D Surface Plot')
+   ax3d.set_xlabel('X')
+   ax3d.set_ylabel('Y')
+   ax3d.set_zlabel('Z')
+
+   # 2D Contour Plot
+   ax2d = fig.add_subplot(122)
+   contour = ax2d.contourf(X, Y, Z, levels=50, cmap='viridis')
+   plt.colorbar(contour, ax=ax2d)
+   ax2d.contour(X, Y, Z, colors='lightgrey', levels=10)
+   ax2d.set_title('2D Contour Plot')
+   ax2d.set_xlabel('X')
+   ax2d.set_ylabel('Y')
+
+   plt.tight_layout()
+   plt.show()
+
+   ```
+
 ### Importinhg a function
 
-See the `examples/plot_function.py` script for a full demonstration using Matplotlib and Seaborn
+See the `examples/plot_function.py` script for a full demonstration using Matplotlib 
 
 ## Contributing
 
