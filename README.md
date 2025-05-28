@@ -138,6 +138,31 @@ You can use the `BenchmarkFunction` class to easily access both the objective fu
 
 See the `examples/plot_function.py` script for a full demonstration using Matplotlib 
 
+## Automated testing 
+
+This project includes automated tests using `pytest`, helping ensure correctness and robustness of all benchmark functions.
+
+### Requirements
+
+Make sure all dependencies are installed. If you're using [PDM](https://pdm.fming.dev/latest/):
+
+### Running the tests
+
+To run all automated tests
+
+   ```bash
+   pdm run pytest
+   ```
+### Test structure 
+
+All tests are located in the `tests/` directory:
+
+   ```bash
+   tests/
+   ├── test_plotting_feasibility.py
+   ```
+These tests verify that each benchmark function can be safely evaluated over its domain (bounds), returning finite values suitable for visualization and optimization.
+
 ## Contributing
 
 Contributions are welcome! 
