@@ -17,13 +17,24 @@ license = {text = "GNU General Public License v3.0 (GPL-3.0)"}
 [tool.pdm]
 distribution = false
 
+[tool.black]
+line-length = 88
+
+[tool.flake8]
+enable-extensions = ["G"]
+
 [tool.pytest.ini_options]
 pythonpath = ["."]
 
 [tool.pdm.scripts]
 plot = "python examples/plot_function.py"
+lint_black = "black ."
+lint_flake8 = "flake8 ."
+lint_check = "black . --check"
 
 [dependency-groups]
 dev = [
     "pytest>=8.3.5",
+    "black>=25.1.0",
+    "flake8>=7.2.0",
 ]

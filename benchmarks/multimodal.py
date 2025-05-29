@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def ackley(x: np.ndarray) -> float:
     """
     Ackley function for optimization.
@@ -34,7 +35,7 @@ def easom(x: np.ndarray) -> float:
         float: Function value.
     """
     x1, x2 = x[0], x[1]
-    return -np.cos(x1) * np.cos(x2) * np.exp(-(x1 - np.pi)**2 - (x2 - np.pi)**2)
+    return -np.cos(x1) * np.cos(x2) * np.exp(-((x1 - np.pi) ** 2) - (x2 - np.pi) ** 2)
 
 
 def eggholder(x: np.ndarray) -> float:
@@ -48,7 +49,9 @@ def eggholder(x: np.ndarray) -> float:
         float: Function value.
     """
     x1, x2 = x[0], x[1]
-    return -(x2 + 47) * np.sin(np.sqrt(np.abs(x2 + x1/2 + 47)/2)) - x1 * np.sin(np.sqrt(np.abs(x1 - (x2 + 47))))
+    return -(x2 + 47) * np.sin(np.sqrt(np.abs(x2 + x1 / 2 + 47) / 2)) - x1 * np.sin(
+        np.sqrt(np.abs(x1 - (x2 + 47)))
+    )
 
 
 def rastrigin(x: np.ndarray) -> float:
@@ -82,8 +85,8 @@ def schaffer_n2(x: np.ndarray) -> float:
     """
     x1, x2 = x[0], x[1]
     r = x1**2 + x2**2
-    num = np.sin(np.sqrt(r))**2 - 0.5
-    den = (1 + 0.001 * r)**2
+    num = np.sin(np.sqrt(r)) ** 2 - 0.5
+    den = (1 + 0.001 * r) ** 2
     return 0.5 + num / den
 
 
@@ -99,8 +102,8 @@ def schaffer_n4(x: np.ndarray) -> float:
     """
     x1, x2 = x[0], x[1]
     r = x1**2 + x2**2
-    num = np.cos(np.sin(np.abs(x1**2 - x2**2)))**2 - 0.5
-    den = (1 + 0.001 * r)**2
+    num = np.cos(np.sin(np.abs(x1**2 - x2**2))) ** 2 - 0.5
+    den = (1 + 0.001 * r) ** 2
     return 0.5 + num / den
 
 
@@ -115,7 +118,7 @@ def styblinski_tang(x: np.ndarray) -> float:
         float: Function value.
     """
     x1, x2 = x[0], x[1]
-    return 0.5 * (x1**4 - 16*x1**2 + 5*x1 + x2**4 - 16*x2**2 + 5*x2)
+    return 0.5 * (x1**4 - 16 * x1**2 + 5 * x1 + x2**4 - 16 * x2**2 + 5 * x2)
 
 
 def three_hump_camel(x: np.ndarray) -> float:
@@ -130,9 +133,3 @@ def three_hump_camel(x: np.ndarray) -> float:
     """
     x1, x2 = x[0], x[1]
     return 2 * x1**2 - 1.05 * x1**4 + (x1**6) / 6 + x1 * x2 + x2**2
-
-
-
-
-
-
