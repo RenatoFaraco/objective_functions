@@ -30,6 +30,7 @@ pythonpath = ["."]
 plot = "python examples/plot_function.py"
 lint_black = "black ."
 lint_flake8 = "flake8 ."
+lint_pylint = "pylint benchmarks examples tests"
 lint_check = {composite = ["lint_black", "lint_flake8"]}
 
 [dependency-groups]
@@ -37,4 +38,5 @@ dev = [
     "pytest>=8.3.5",
     "black>=25.1.0",
     "flake8>=7.2.0",
+    "pylint>=3.3.7",
 ]
