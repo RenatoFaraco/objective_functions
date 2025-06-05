@@ -3,44 +3,44 @@
 
 This repository provides a collection of benchmark objective functions implemented in Python, commonly used to test and compare optimization algorithms. The functions include both unconstrained and constrained continuous optimization problems, featuring various characteristics such as multimodality, valleys, plateaus, and discontinuities.
 
-## Key Features  
-- **Pure Python + NumPy**: All functions leverage NumPy for vectorized computations and performance.  
-- **Consistent Interface**: All objective functions now accept a single NumPy array `x` of shape `(n,)`, where `n` is the number of dimensions (e.g., `x = np.array([x1, x2])`).  
-- **Rich Documentation**: Each function includes clear docstrings detailing the mathematical formula, parameters, and return values.  
-- **Predefined Search Domains**: Built‑in bounds for each function facilitate immediate use in optimization experiments.  
-- **Unconstrained & Constrained Variants**: Includes both standard continuous functions and constrained versions (e.g., Rosenbrock with cube, line, or disk constraints, Mishra’s Bird, Modified Townsend, Simionescu).  
+## Key Features
+- **Pure Python + NumPy**: All functions leverage NumPy for vectorized computations and performance.
+- **Consistent Interface**: All objective functions now accept a single NumPy array `x` of shape `(n,)`, where `n` is the number of dimensions (e.g., `x = np.array([x1, x2])`).
+- **Rich Documentation**: Each function includes clear docstrings detailing the mathematical formula, parameters, and return values.
+- **Predefined Search Domains**: Built‑in bounds for each function facilitate immediate use in optimization experiments.
+- **Unconstrained & Constrained Variants**: Includes both standard continuous functions and constrained versions (e.g., Rosenbrock with cube, line, or disk constraints, Mishra’s Bird, Modified Townsend, Simionescu).
 
 
-## Included Functions  
-### Classical Unconstrained Optimizers  
-- **Rastrigin**  
-- **Ackley**  
-- **Sphere**  
-- **Rosenbrock**  
-- **Beale**  
-- **Goldstein–Price**  
-- **Booth**  
-- **Bukin N.6**  
-- **Matyas**  
-- **Lévi N.13**  
-- **Himmelblau**  
-- **Three‑Hump Camel**  
-- **Easom**  
-- **Cross‑in‑Tray**  
-- **Eggholder**  
-- **Hölder Table**  
-- **McCormick**  
-- **Schaffer N.2 & N.4**  
-- **Styblinski–Tang** 
+## Included Functions
+### Classical Unconstrained Optimizers
+- **Rastrigin**
+- **Ackley**
+- **Sphere**
+- **Rosenbrock**
+- **Beale**
+- **Goldstein–Price**
+- **Booth**
+- **Bukin N.6**
+- **Matyas**
+- **Lévi N.13**
+- **Himmelblau**
+- **Three‑Hump Camel**
+- **Easom**
+- **Cross‑in‑Tray**
+- **Eggholder**
+- **Hölder Table**
+- **McCormick**
+- **Schaffer N.2 & N.4**
+- **Styblinski–Tang**
 
-### Constrained Optimization Variants  
-- **Rosenbrock** with cube & line constraints  
-- **Rosenbrock** with disk constraint  
-- **Mishra’s Bird** (constrained)  
-- **Modified Townsend**  
-- **Simionescu**   
+### Constrained Optimization Variants
+- **Rosenbrock** with cube & line constraints
+- **Rosenbrock** with disk constraint
+- **Mishra’s Bird** (constrained)
+- **Modified Townsend**
+- **Simionescu**
 
-## Installation  
+## Installation
 
 This project uses [PDM](https://pdm.fming.dev/latest/) to manage dependencies and the virtual environment.
 
@@ -67,7 +67,7 @@ This project uses [PDM](https://pdm.fming.dev/latest/) to manage dependencies an
    ```
 
 4. **Run a sample script**
-   ```bash 
+   ```bash
    pdm run plot
    ```
 
@@ -75,7 +75,7 @@ This project uses [PDM](https://pdm.fming.dev/latest/) to manage dependencies an
 
 ### Importinhg a function
 
-   ```python 
+   ```python
    from benchmarks.multimodal import ackley
 
    value = ackley([0.5, -0.3])
@@ -136,9 +136,9 @@ You can use the `BenchmarkFunction` class to easily access both the objective fu
 
 ### Importinhg a function
 
-See the `examples/plot_function.py` script for a full demonstration using Matplotlib 
+See the `examples/plot_function.py` script for a full demonstration using Matplotlib
 
-## Automated testing 
+## Automated testing
 
 This project includes automated tests using `pytest`, helping ensure correctness and robustness of all benchmark functions.
 
@@ -153,7 +153,7 @@ To run all automated tests
    ```bash
    pdm run pytest
    ```
-### Test structure 
+### Test structure
 
 All tests are located in the `tests/` directory:
 
@@ -165,7 +165,7 @@ These tests verify that each benchmark function can be safely evaluated over its
 
 ## Contributing
 
-Contributions are welcome! 
+Contributions are welcome!
 
 ## License
 
