@@ -31,6 +31,7 @@ plot = "python examples/plot_function.py"
 lint_black = "black ."
 lint_flake8 = "flake8 ."
 lint_pylint = "pylint benchmarks examples tests"
+lint_gitlint = "gitlint --commit HEAD"
 lint_check = {composite = ["lint_black", "lint_flake8"]}
 
 [dependency-groups]
