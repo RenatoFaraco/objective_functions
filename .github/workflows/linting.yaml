@@ -3,22 +3,20 @@ name: Linting
 on: pull_request
 
 jobs:
-
   black:
     name: Black
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup PDM with cache
+        uses: pdm-project/setup-pdm@v4
         with:
           python-version: '3.10'
+          cache: true
 
-      - name: Install PDM and dependencies
-        run: |
-          pip install pdm
-          pdm config python.use_venv true
-          pdm install
+      - name: Install dependencies
+        run: pdm install
 
       - name: Run Black
         run: pdm run lint_black
@@ -29,15 +27,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup PDM with cache
+        uses: pdm-project/setup-pdm@v4
         with:
           python-version: '3.10'
+          cache: true
 
-      - name: Install PDM and dependencies
-        run: |
-          pip install pdm
-          pdm config python.use_venv true
-          pdm install
+      - name: Install dependencies
+        run: pdm install
 
       - name: Run Flake8
         run: pdm run lint_flake8
