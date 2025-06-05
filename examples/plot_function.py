@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from benchmarks.functions_registry import BenchmarkFunction
 
-f = BenchmarkFunction("rosenbrock_constrained_disk")
+f = BenchmarkFunction("townsend_modified")
 
 params = {
     "function": f,

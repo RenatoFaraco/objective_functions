@@ -145,9 +145,8 @@ def townsend_modified(x: np.ndarray) -> float:
                     + 1
                 )
         return result
-    else:
-        return (
-            0.5 * ((x1 - a) ** 2 + (x2 - b) ** 2)
-            - np.cos(c * (x1 - a)) * np.cos(d * (x2 - b))
-            + 1
-        )
+    return (
+        0.5 * ((x1 - a) ** 2 + (x2 - b) ** 2)
+        - np.cos(c * (x1 - a)) * np.cos(d * (x2 - b))
+        + 1
+    )
