@@ -163,6 +163,24 @@ All tests are located in the `tests/` directory:
    ```
 These tests verify that each benchmark function can be safely evaluated over its domain (bounds), returning finite values suitable for visualization and optimization.
 
+## Pre-commit Hoooks
+
+This repository uses [`pre-commit`](https://pre-commit.com) to ensure code quality and test integrity before every commit.
+
+### Configured Hooks
+
+- Black – Code formatting
+- Flake8 – Linting
+- gitlint
+
+### Setup
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+Hooks will now automatically run on every commit.
+
 ## Contributing
 
 Contributions are welcome!
