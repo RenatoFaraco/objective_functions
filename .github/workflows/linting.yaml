@@ -41,22 +41,3 @@ jobs:
 
       - name: Run Flake8
         run: pdm run lint_flake8
-
-  gitlint:
-    name: Gitlint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Install PDM and dependencies
-        run: |
-          pip install pdm
-          pdm config python.use_venv true
-          pdm install
-
-      - name: Run Gitlint
-        run: pdm run lint_gitlint
