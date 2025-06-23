@@ -34,7 +34,7 @@ _BOUNDS = {
     "beale": np.array([[-5.12, 5.12]] * 2),
     "booth": np.array([[-5.12, 5.12]] * 2),
     "matyas": np.array([[-10, 10]] * 2),
-    "rosenbrock": np.array([[-2.12, 2.12], [-1, -3]]),
+    "rosenbrock": np.array([[-2.12, 2.12], [-3, -1]]),
     "sphere": np.array([[-5.12, 5.12]] * 2),
     "ackley": np.array([[-32.768, 32.768]] * 2),
     "easom": np.array([[-10, 10]] * 2),
