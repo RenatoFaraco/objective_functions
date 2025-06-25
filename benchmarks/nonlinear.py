@@ -32,7 +32,7 @@ def rosenbrock_constrained(x: np.ndarray) -> float:
     outside_cube = (x1 < -1 or x1 > 1) or (x2 < -1 or x2 > 1)
     outside_line = x2 < -x1 + 1
     if outside_cube or outside_line:
-        return np.inf
+        return 1e6
     return (1 - x1) ** 2 + 100 * (x2 - x1**2) ** 2
 
 
@@ -49,7 +49,7 @@ def rosenbrock_constrained_disk(x: np.ndarray) -> float:
     x1, x2 = x[0], x[1]
     radius = 1.5
     inside_disk = x1**2 + x2**2 <= radius**2
-    Z = np.where(inside_disk, (1 - x1) ** 2 + 100 * (x2 - x1**2) ** 2, np.inf)
+    Z = np.where(inside_disk, (1 - x1) ** 2 + 100 * (x2 - x1**2) ** 2, 1e6)
 
     return Z
 
