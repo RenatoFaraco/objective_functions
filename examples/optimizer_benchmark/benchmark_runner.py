@@ -1,7 +1,7 @@
 import os
 import sys
-from optimizers import SciPyOptimizer
-from printer import print_results
+from .optimizers import SciPyOptimizer
+from .printer import print_results
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 from benchmarks import functions_registry as reg

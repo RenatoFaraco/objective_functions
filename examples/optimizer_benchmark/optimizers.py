@@ -1,8 +1,8 @@
 import time
 import numpy as np
 from scipy.optimize import differential_evolution, minimize
-from base import BenchmarkRunner
-from printer import progress
+from .base import BenchmarkRunner
+from .printer import progress
 
 
 class SciPyOptimizer(BenchmarkRunner):
