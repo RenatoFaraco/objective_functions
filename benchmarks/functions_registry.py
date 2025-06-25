@@ -56,6 +56,32 @@ _BOUNDS = {
     "levi": np.array([[-10, 10]] * 2),
 }
 
+_RESULTS = {
+    "beale": 0.0,
+    "booth": 0.0,
+    "matyas": 0.0,
+    "rosenbrock": 0.0,  # Para 2D é 0
+    "sphere": 0.0,
+    "ackley": 0.0,
+    "easom": -1.0,
+    "eggholder": -959.6407,
+    "rastrigin": 0.0,
+    "schaffer_n2": 0.0,
+    "schaffer_n4": 0.292579,
+    "styblinski_tang": -78.332,  # para 2D
+    "three_hump_camel": 0.0,
+    "mishra_bird_constrained": -106.7645367,
+    "rosenbrock_constrained": 0.0,
+    "rosenbrock_constrained_disk": 0.0,
+    "simionescu": 0.0,
+    "townsend_modified": 2.0052938,
+    "bukin": 0.0,
+    "cross_in_tray": -2.06261,
+    "goldstein_price": 3.0,
+    "holder_table": -19.2085,
+    "levi": 0.0,
+}
+
 
 class BenchmarkFunction:
     def __init__(self, name: str):
@@ -74,3 +100,4 @@ class BenchmarkFunction:
 
 FUNCTIONS = _FUNCTIONS
 BOUNDS = _BOUNDS
+RESULTS = _RESULTS

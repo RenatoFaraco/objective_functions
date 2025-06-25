@@ -10,6 +10,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from benchmarks import functions_registry
 
 FUNCTIONS = functions_registry.FUNCTIONS.keys()
+RESULTS = functions_registry.RESULTS.keys()
 OPTIMIZERS = ["differential_evolution", "nelder_mead"]
 N_RUNS = 5
 
@@ -18,6 +19,7 @@ def run_optimizer(func_name, optimizer_name):
 
     func = functions_registry.FUNCTIONS[func_name]
     bounds = functions_registry.BOUNDS[func_name]
+    correct_result = functions_registry.RESULTS[func_name]
 
     lower_bounds, upper_bounds = zip(*bounds)
 
@@ -36,11 +38,13 @@ def run_optimizer(func_name, optimizer_name):
                 polish=True,
                 seed=run,
             )
+
         elif optimizer_name == "nelder_mead":
             x0 = np.random.uniform(low=lower_bounds, high=upper_bounds)
             result = minimize(
                 func, x0, method="Nelder-Mead", options={"maxiter": 1000, "fatol": 1e-6}
             )
+
         else:
             raise ValueError(f"Otimizador {optimizer_name} não implementado")
 
@@ -50,7 +54,11 @@ def run_optimizer(func_name, optimizer_name):
             {
                 "fun": result.fun,
                 "nfev": getattr(result, "nfev", None),
-                "success": result.success,
+                "success": (
+                    "✔️"
+                    if np.isclose(result.fun, correct_result, rtol=1e-6, atol=1e-6)
+                    else "❌"
+                ),
                 "time": end_time - start_time,
             }
         )
@@ -61,12 +69,12 @@ def run_optimizer(func_name, optimizer_name):
 def show_results_table(all_results):
     table = []
     headers = [
-        "Função",
-        "Otimizador",
-        "Melhor Valor",
-        "Avaliações",
-        "Tempo (s)",
-        "Sucesso",
+        "Function",
+        "Method",
+        "Best Value",
+        "Runs",
+        "Time (s)",
+        "Result",
     ]
 
     grouped = {}
@@ -96,7 +104,7 @@ def main():
 
     for func_name in FUNCTIONS:
         for optimizer_name in OPTIMIZERS:
-            print(f"Rodando {optimizer_name} na função {func_name}...")
+            print(f"▶️ Rodando {optimizer_name} na função {func_name}...")
             results = run_optimizer(func_name, optimizer_name)
 
             for r in results:
@@ -105,7 +113,7 @@ def main():
                 all_results.append(r)
 
     show_results_table(all_results)
-    print("Benchmarking concluído.")
+    print("✅ Benchmarking concluído.")
 
 
 if __name__ == "__main__":
