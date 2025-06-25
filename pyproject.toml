@@ -9,6 +9,7 @@ dependencies = [
     "numpy>=2.2.6",
     "scipy>=1.15.2",
     "tabulate>=0.9.0",
+    "rich>=13.7.1",
     "matplotlib>=3.10.3"
 ]
 requires-python = "==3.10.*"
@@ -30,7 +31,7 @@ pythonpath = ["."]
 
 [tool.pdm.scripts]
 plot = "python examples/plot_function.py"
-benchmark = "python examples/benchmark_optimizers.py"
+benchmark = "python examples/optimizer_benchmark/benchmark_runner.py"
 lint_black = "black ."
 lint_flake8 = "flake8 ."
 lint_pylint = "pylint benchmarks examples tests"
